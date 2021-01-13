@@ -1,0 +1,150 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+
+public class Pet_Store {
+
+	private JFrame frame;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Pet_Store window = new Pet_Store();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Pet_Store() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 558, 500);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Pet Store");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel.setBounds(243, 20, 95, 26);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Animal:");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1.setBounds(47, 75, 74, 13);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Cat");
+		rdbtnNewRadioButton.setBounds(95, 73, 103, 21);
+		frame.getContentPane().add(rdbtnNewRadioButton);
+		
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Dog");
+		rdbtnNewRadioButton_1.setBounds(95, 94, 103, 21);
+		frame.getContentPane().add(rdbtnNewRadioButton_1);
+		
+		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Bird");
+		rdbtnNewRadioButton_2.setBounds(95, 119, 103, 21);
+		frame.getContentPane().add(rdbtnNewRadioButton_2);
+		
+		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Food- 3LV");
+		rdbtnNewRadioButton_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbtnNewRadioButton_3.setBounds(318, 71, 103, 21);
+		frame.getContentPane().add(rdbtnNewRadioButton_3);
+		
+		JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("Toilet- 5 LV");
+		rdbtnNewRadioButton_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbtnNewRadioButton_4.setBounds(318, 92, 103, 21);
+		frame.getContentPane().add(rdbtnNewRadioButton_4);
+		
+		JRadioButton rdbtnNewRadioButton_5 = new JRadioButton("Accessories - 4LV");
+		rdbtnNewRadioButton_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		rdbtnNewRadioButton_5.setBounds(318, 117, 135, 21);
+		frame.getContentPane().add(rdbtnNewRadioButton_5);
+		
+		JLabel lblNewLabel_3 = new JLabel("Qnt");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_3.setBounds(420, 75, 68, 13);
+		frame.getContentPane().add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("Qnt");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_4.setBounds(421, 96, 45, 13);
+		frame.getContentPane().add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_2 = new JLabel("Type of Product:");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2.setBounds(190, 75, 150, 13);
+		frame.getContentPane().add(lblNewLabel_2);
+		
+		textField = new JTextField();
+		textField.setBounds(448, 74, 30, 19);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(448, 95, 30, 19);
+		frame.getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblNewLabel_5 = new JLabel("Qnt");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5.setBounds(443, 121, 45, 13);
+		frame.getContentPane().add(lblNewLabel_5);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(484, 120, 30, 19);
+		frame.getContentPane().add(textField_2);
+		textField_2.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Add to bag");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton.setBounds(37, 215, 95, 44);
+		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Clean all");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnNewButton_1.setBounds(37, 291, 95, 38);
+		frame.getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Checkout");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnNewButton_2.setBounds(37, 349, 95, 73);
+		frame.getContentPane().add(btnNewButton_2);
+		
+		JLabel lblNewLabel_6 = new JLabel("For every purchase over 10 LV is included a free candy for your pet");
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNewLabel_6.setBounds(155, 164, 389, 38);
+		frame.getContentPane().add(lblNewLabel_6);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(165, 215, 369, 207);
+		frame.getContentPane().add(textField_3);
+		textField_3.setColumns(10);
+	}
+}
