@@ -6,18 +6,34 @@ import java.awt.Font;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import javax.swing.border.BevelBorder;
+import javax.swing.JFormattedTextField;
+import java.awt.SystemColor;
 
 public class Pet_Store {
-	int sum=0;
+	
+	ButtonGroup group=new ButtonGroup();
 	private JFrame frame;
-	private JTextField text1;
-	private JTextField text2;
-	private JTextField text3;
+	private JTextField text1TF;
+	private JTextField text2TF;
+	private JTextField text3TF;
+	private JRadioButton cat;
+	private JRadioButton dog;
+	private JRadioButton bird;
+	private JTextField totalTF;
+	private JTextField giftTF;
+	private JTextField taxTF;
+	private JTextField subtotalTF;
 
 	/**
 	 * Launch the application.
@@ -48,129 +64,181 @@ public class Pet_Store {
 	private void initialize() {
 		 
 		frame = new JFrame();
-		frame.setBounds(100, 100, 558, 500);
+		frame.getContentPane().setBackground(SystemColor.info);
+		frame.getContentPane().setForeground(Color.WHITE);
+		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 10));
+		frame.setBounds(100, 100, 627, 482);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(175, 201, 349, 228);
-		frame.getContentPane().add(textArea);
-		
 		JLabel lblNewLabel = new JLabel("Pet Store");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(243, 20, 95, 26);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblNewLabel.setBounds(254, 10, 111, 26);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Animal:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1.setBounds(47, 75, 74, 13);
+		JLabel lblNewLabel_1 = new JLabel("Animal :");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblNewLabel_1.setBounds(85, 33, 93, 27);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JRadioButton cat = new JRadioButton("Cat");
-		cat.setBounds(95, 73, 103, 21);
+		cat = new JRadioButton("Cat");
+		cat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(cat.isSelected()) {
+					dog.setSelected(false);
+					bird.setSelected(false);
+				}
+			}
+		});
+		cat.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		cat.setBounds(95, 66, 60, 21);
 		frame.getContentPane().add(cat);
 		
-		JRadioButton dog = new JRadioButton("Dog");
-		dog.setBounds(95, 94, 103, 21);
+		dog = new JRadioButton("Dog");
+		dog.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(dog.isSelected()) {
+					cat.setSelected(false);
+					bird.setSelected(false);
+				}
+			}
+		});
+		dog.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		dog.setBounds(95, 96, 74, 21);
 		frame.getContentPane().add(dog);
 		
-		JRadioButton bird = new JRadioButton("Bird");
-		bird.setBounds(95, 119, 103, 21);
+		bird = new JRadioButton("Bird");
+		bird.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(bird.isSelected()) {
+					dog.setSelected(false);
+					cat.setSelected(false);
+				}
+			}
+		});
+		bird.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		bird.setBounds(95, 125, 83, 21);
 		frame.getContentPane().add(bird);
 		
 		JLabel lblNewLabel_3 = new JLabel("Qnt");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_3.setBounds(456, 75, 68, 13);
+		lblNewLabel_3.setBounds(476, 69, 30, 13);
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Qnt");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_4.setBounds(456, 96, 45, 13);
+		lblNewLabel_4.setBounds(476, 96, 45, 13);
 		frame.getContentPane().add(lblNewLabel_4);
-		
-		JLabel lblNewLabel_2 = new JLabel("Type of Product:");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_2.setBounds(190, 75, 150, 13);
-		frame.getContentPane().add(lblNewLabel_2);
-		
-		text1 = new JTextField();
-		text1.setBounds(484, 74, 30, 19);
-		frame.getContentPane().add(text1);
-		text1.setColumns(10);
-		
-		text2 = new JTextField();
-		text2.setBounds(484, 95, 30, 19);
-		frame.getContentPane().add(text2);
-		text2.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("Qnt");
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_5.setBounds(433, 121, 45, 13);
+		lblNewLabel_5.setBounds(477, 109, 47, 37);
 		frame.getContentPane().add(lblNewLabel_5);
 		
-		text3 = new JTextField();
-		text3.setBounds(484, 120, 30, 19);
-		frame.getContentPane().add(text3);
-		text3.setColumns(10);
+		JLabel lblNewLabel_2 = new JLabel("Type of Product :");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_2.setBounds(396, 40, 150, 19);
+		frame.getContentPane().add(lblNewLabel_2);
+		
+		text1TF = new JTextField();
+		text1TF.setBounds(516, 68, 30, 20);
+		frame.getContentPane().add(text1TF);
+		text1TF.setColumns(10);
+		
+		text2TF = new JTextField();
+		text2TF.setBounds(516, 96, 30, 19);
+		frame.getContentPane().add(text2TF);
+		text2TF.setColumns(10);
+		
+		text3TF = new JTextField();
+		text3TF.setBounds(516, 121, 30, 19);
+		frame.getContentPane().add(text3TF);
+		text3TF.setColumns(10);
 		
 	
-		JButton checkout = new JButton("Checkout");
-		checkout.addActionListener(new ActionListener() {
+		JButton Exit = new JButton("Exit");
+		Exit.setBackground(SystemColor.text);
+		Exit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.append("------- Thank you for the purchase!--------\n");
+				System.exit(0);
 			}
 		});
-		checkout.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		checkout.setBounds(37, 349, 95, 73);
-		frame.getContentPane().add(checkout);
+		Exit.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		Exit.setBounds(37, 349, 95, 73);
+		frame.getContentPane().add(Exit);
 		
-		JLabel lblNewLabel_6 = new JLabel("For every purchase over 10 LV is included a free candy for your pet");
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel_6.setBounds(155, 164, 389, 38);
+		
+		
+		JLabel lblNewLabel_6 = new JLabel("For every purchase over 15 LV is included a free candy for your pet !");
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_6.setBounds(95, 170, 484, 38);
 		frame.getContentPane().add(lblNewLabel_6);
 		
-		JCheckBox food = new JCheckBox("Food- 3LV");
+		JCheckBox food = new JCheckBox("Food  3LV");
 		food.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		food.setBounds(318, 73, 93, 21);
+		food.setBounds(377, 65, 93, 21);
 		frame.getContentPane().add(food);
 		
-		JCheckBox toilet = new JCheckBox("Toilet- 5LV");
+		JCheckBox toilet = new JCheckBox("Toilet  5LV");
 		toilet.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		toilet.setBounds(318, 94, 124, 21);
+		toilet.setBounds(377, 93, 95, 21);
 		frame.getContentPane().add(toilet);
 		
-		JCheckBox accessories = new JCheckBox("Accessories- 4LV");
-		accessories.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		accessories.setBounds(298, 117, 170, 21);
-		frame.getContentPane().add(accessories);
-		
-		
-		JButton bag = new JButton("Add to bag");
+		JCheckBox toys = new JCheckBox("Toys  4LV");
+		toys.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		toys.setBounds(376, 118, 95, 21);
+		frame.getContentPane().add(toys);
+	
+		JButton bag = new JButton("Calculate");
+		bag.setBackground(SystemColor.text);
 		bag.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		
-				if(food.isSelected()) {
-					sum+=3;
+				double total;
+				double subTotal=0;
+				final double TAXRATE=0.1;
+				double tax;
+				
+				if(dog.isSelected()&&food.isSelected()||cat.isSelected()&&food.isSelected()||bird.isSelected()&&food.isSelected()) {
+					int text1=Integer.parseInt(text1TF.getText());
+					subTotal+=3*text1;
 				}
-				if(toilet.isSelected()) {
-					sum+=5;
+				if(dog.isSelected()&&toilet.isSelected()||cat.isSelected()&&toilet.isSelected()||bird.isSelected()&&toilet.isSelected()) {
+					int text2=Integer.parseInt(text2TF.getText());
+					subTotal+=5*text2;
 				}
-				if(accessories.isSelected()) {
-					sum+=4;
+				if(dog.isSelected()&&toys.isSelected()||cat.isSelected()&&toys.isSelected()||dog.isSelected()&&toys.isSelected()) {
+					int text3=Integer.parseInt(text3TF.getText());
+					subTotal+=4*text3;
+				}
+			
+				subtotalTF.setText(Double.toString(subTotal));
+				
+				
+				tax=subTotal*TAXRATE;
+				taxTF.setText(Double.toString(tax));
+				
+				total=subTotal+tax;
+				totalTF.setText(Double.toString(total));
+				
+				if(total>=15) {
+				  giftTF.setText("yes");
+				}
+				else {
+					giftTF.setText("no");
 				}
 				
-				textArea.append("Your goods are added to bag!\n");
+				
 			}
 		});
-		bag.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		bag.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		bag.setBounds(37, 215, 95, 44);
 		frame.getContentPane().add(bag);
 		
 		
 		
 		JButton clean = new JButton("Clean all");
+		clean.setBackground(SystemColor.text);
 		clean.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cat.setSelected(false);
@@ -178,17 +246,77 @@ public class Pet_Store {
 				bird.setSelected(false);
 				food.setSelected(false);
 				toilet.setSelected(false);
-				accessories.setSelected(false);
-				text1.setText("");
-				text2.setText("");
-				text3.setText("");
-				textArea.setText("");
+				toys.setSelected(false);
+				text1TF.setText("");
+				text2TF.setText("");
+				text3TF.setText("");
+				subtotalTF.setText(null);
+				taxTF.setText(null);
+				totalTF.setText(null);
+				giftTF.setText(null);
 				
 			}
 		});
-		clean.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		clean.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		clean.setBounds(37, 291, 95, 38);
 		frame.getContentPane().add(clean);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(SystemColor.control);
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.setBounds(37, 33, 192, 127);
+		frame.getContentPane().add(panel);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(SystemColor.control);
+		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_1.setBounds(375, 33, 204, 127);
+		frame.getContentPane().add(panel_1);
+		
+		totalTF = new JTextField();
+		totalTF.setBounds(317, 330, 96, 19);
+		frame.getContentPane().add(totalTF);
+		totalTF.setColumns(10);
+		
+		JLabel wfwfw = new JLabel("Total");
+		wfwfw.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		wfwfw.setBounds(247, 327, 60, 21);
+		frame.getContentPane().add(wfwfw);
+		
+		giftTF = new JTextField();
+		giftTF.setBounds(317, 377, 96, 19);
+		frame.getContentPane().add(giftTF);
+		giftTF.setColumns(10);
+		
+		JLabel hahaha = new JLabel("Gift ?");
+		hahaha.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		hahaha.setHorizontalAlignment(SwingConstants.CENTER);
+		hahaha.setBounds(247, 375, 45, 18);
+		frame.getContentPane().add(hahaha);
+		
+		taxTF = new JTextField();
+		taxTF.setBounds(317, 289, 96, 19);
+		frame.getContentPane().add(taxTF);
+		taxTF.setColumns(10);
+		
+		JLabel jajaja = new JLabel("Tax");
+		jajaja.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		jajaja.setBounds(247, 284, 37, 25);
+		frame.getContentPane().add(jajaja);
+		
+		subtotalTF = new JTextField();
+		subtotalTF.setBounds(317, 240, 96, 19);
+		frame.getContentPane().add(subtotalTF);
+		subtotalTF.setColumns(10);
+		
+		JLabel wewwe = new JLabel("Subtotal");
+		wewwe.setForeground(Color.BLACK);
+		wewwe.setBackground(Color.RED);
+		wewwe.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		wewwe.setBounds(243, 241, 93, 18);
+		frame.getContentPane().add(wewwe);
+		
+		
 		
 	
 		
