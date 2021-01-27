@@ -38,6 +38,8 @@ public class Pet_Store {
 	/**
 	 * Launch the application.
 	 */
+	
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -134,12 +136,6 @@ public class Pet_Store {
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_5.setBounds(477, 109, 47, 37);
 		frame.getContentPane().add(lblNewLabel_5);
-		
-		JLabel lblNewLabel_2 = new JLabel("Type of Product :");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2.setBounds(396, 40, 150, 19);
-		frame.getContentPane().add(lblNewLabel_2);
 		
 		text1TF = new JTextField();
 		text1TF.setBounds(516, 68, 30, 20);
@@ -272,6 +268,11 @@ public class Pet_Store {
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_1.setBounds(375, 33, 204, 127);
 		frame.getContentPane().add(panel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Type of Product :");
+		panel_1.add(lblNewLabel_2);
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		
 		totalTF = new JTextField();
 		totalTF.setBounds(317, 330, 96, 19);
